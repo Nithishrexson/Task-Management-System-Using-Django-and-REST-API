@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="home-container">
+
+    <h1 class="page-title">My Tasks</h1>
+
+    <div class="task-container">
+
+        {% for i in data %}
+
+        <div class="task-card">
+
+            <h2>{{ i.title }}</h2>
+
+            <p>{{ i.desc }}</p>
+
+            <div class="task-actions">
+
+                <a href="{% url 'update' i.id %}" class="btn update-btn">
+                    Update
+                </a>
+
+                <a href="{% url 'delete' i.id %}" class="btn delete-btn">
+                    Delete
+                </a>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty-box">
+            <h2>No Tasks Available</h2>
+            <p>Add your first task.</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

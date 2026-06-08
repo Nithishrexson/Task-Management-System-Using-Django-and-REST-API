@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h1>Login</h1>
+
+        <form action="" method="POST">
+
+            {% csrf_token %}
+
+            {% for i in messages %}
+                <p class="message">{{ i }}</p>
+            {% endfor %}
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="usname" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="psw" required>
+            </div>
+
+            <button type="submit" class="auth-btn">
+                Login
+            </button>
+
+            {% if user.is_authenticated %}
+            <div class="extra-link">
+                <a href="{% url 'reset_pasw' %}">
+                    Reset Password
+                </a>
+            </div>
+            {% endif %}
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

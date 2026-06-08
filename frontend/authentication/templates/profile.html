@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="profile-container">
+
+    <div class="profile-card">
+
+        <div class="profile-top">
+            <div class="profile-circle">
+                {{request.user.username|first|upper}}
+            </div>
+
+            <h1>{{request.user}}</h1>
+            <p>Flight Management User</p>
+        </div>
+
+        <div class="profile-details">
+
+            <div class="detail-box">
+                <h3>First Name</h3>
+                <p>{{request.user.first_name}}</p>
+            </div>
+
+            <div class="detail-box">
+                <h3>Last Name</h3>
+                <p>{{request.user.last_name}}</p>
+            </div>
+
+            <div class="detail-box">
+                <h3>Username</h3>
+                <p>{{request.user.username}}</p>
+            </div>
+
+            <div class="detail-box">
+                <h3>Email</h3>
+                <p>{{request.user.email}}</p>
+            </div>
+
+        </div>
+
+        <div class="btn-area">
+            <a href="{% url 'update' %}" class="update-btn">
+                Update Details
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

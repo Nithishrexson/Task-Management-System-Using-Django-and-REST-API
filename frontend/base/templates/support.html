@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="info-container">
+
+    <h1 class="page-title">Support Center</h1>
+
+    {% for i in support_page %}
+
+    <div class="info-card">
+
+        <h2>{{ i.title }}</h2>
+
+        <p>{{ i.desc }}</p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
